@@ -119,9 +119,11 @@ public class Character : MonoBehaviour
 
             animator.SetTrigger("Attack");
             audioSource.PlayOneShot(AttackClip);
+
             if (gameObject.name == "Warrior")
             {
                 AttackObj.SetActive(true);
+                Invoke("SetAttackObjInactive", 0.5f);
             }
             else
             {
