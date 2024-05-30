@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public string UserID;
 
     public float PlayerHP;
+    public float PlayerExp;
 
     private void Awake()
     {

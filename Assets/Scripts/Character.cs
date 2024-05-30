@@ -18,6 +18,9 @@ public class Character : MonoBehaviour
     public float JumpPower;
 
     private bool isFloor;
+    private bool isLadder;
+    private bool isClimbing;
+    private float InputVertical;
 
     public GameObject AttackObj;
     public float AttackSpeed;
@@ -38,12 +41,15 @@ public class Character : MonoBehaviour
         Move();
         JumpCheck();
         AttackCheck();
+        ClimbingChack();
     }
     private void FixedUpdate()
     {
         Jump();
         Attack();
+        Cilbing();
     }
+    //움직임
     private void Move()
     {
         if(Input.GetKey(KeyCode.RightArrow)) //눌리는 동안 움직이게 GetKey 사용
@@ -69,6 +75,7 @@ public class Character : MonoBehaviour
             spriteRenderer.flipX = true;//방향 전환 됨
         }
     }
+    //점프
     private void Jump()
     {
         if (justJump)//JumpCheck에서 true로 전환 되었을 때
@@ -104,6 +111,7 @@ public class Character : MonoBehaviour
             isFloor= false;
         }
     }
+    //공격
     private void AttackCheck()
     {
         if (Input.GetKeyDown(KeyCode.C))
@@ -145,5 +153,41 @@ public class Character : MonoBehaviour
     private void SetAttackObjInactive()
     {
         AttackObj.SetActive(false);
+    }
+    //사다리에서 움직임
+    private void ClimbingChack()
+    {
+        InputVertical = Input.GetAxis("Vertical");
+        if(isLadder && Mathf.Abs(InputVertical) > 0)
+        {
+            isClimbing = true;
+        }
+    }
+    private void Cilbing()
+    {
+        if(isClimbing)
+        {
+            rigidbody2d.gravityScale = 0f;
+            rigidbody2d.velocity=new Vector2(rigidbody2d.velocity.x,InputVertical*Speed);
+        }
+        else
+        {
+            rigidbody2d.gravityScale=1f;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Ladder")
+        {
+            isLadder = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Ladder")
+        {
+            isClimbing = false;
+            isLadder=false;
+        }
     }
 }
