@@ -696,7 +696,7 @@ Animator:
   m_GameObject: {fileID: 719711397}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ff8fb7a84bb6afd408c92d2e29d42a8b, type: 2}
+  m_Controller: {fileID: 9100000, guid: f4cac0f205f90484d882fcaae73b1281, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1298,6 +1298,7 @@ MonoBehaviour:
   ChatacterName: 
   UserID: 
   PlayerHP: 100
+  PlayerExp: 0
 --- !u!4 &1173413525
 Transform:
   m_ObjectHideFlags: 0

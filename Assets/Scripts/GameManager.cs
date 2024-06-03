@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     public float PlayerHP;
     public float PlayerExp;
+    public int Coin;
 
     private void Awake()
     {
