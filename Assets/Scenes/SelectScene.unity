@@ -1295,10 +1295,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f3675edf5a92ca4083a76c73d8779b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChatacterName: 
+  CharacterName: 
   UserID: 
   PlayerHP: 100
   PlayerExp: 0
+  Coin: 0
 --- !u!4 &1173413525
 Transform:
   m_ObjectHideFlags: 0

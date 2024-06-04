@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public string ChatacterName;
+    public string CharacterName;
     public string UserID;
 
     public float PlayerHP;
@@ -19,7 +17,7 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
-        else if(Instance!=this)
+        else if (Instance != this)
         {
             Destroy(gameObject);
         }
@@ -30,9 +28,15 @@ public class GameManager : MonoBehaviour
     {
         UserID = PlayerPrefs.GetString("ID");
     }
+    public GameObject SpawnPlayer(Transform spawnPos)
+    {
+        GameObject playerPrefab = Resources.Load<GameObject>("Characters/" + CharacterName);
+        GameObject player = Instantiate(playerPrefab, spawnPos.position, spawnPos.rotation);
+        return player;
+    }
 
     void Update()
     {
-        
+
     }
 }

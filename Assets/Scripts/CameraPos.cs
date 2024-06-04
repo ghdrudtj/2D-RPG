@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraPos : MonoBehaviour
 {
-    private GameObject playerObj;
+    private GameObject PlayerObj;
     void Start()
     {
         
@@ -12,10 +12,10 @@ public class CameraPos : MonoBehaviour
 
     void Update()
     {
-        if (playerObj == null)
+        if (PlayerObj == null)
         {
-            playerObj = GameObject.FindGameObjectWithTag("Player");
+            PlayerObj = GameObject.FindGameObjectWithTag("Player");
         }
-        transform.position = new Vector3(playerObj.transform.position.x,0,-10);
+        transform.position = new Vector3(PlayerObj.transform.position.x,0,-10);
     }
 }
