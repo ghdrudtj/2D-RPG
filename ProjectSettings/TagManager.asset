@@ -9,6 +9,8 @@ TagManager:
   - Ladder
   - Coin
   - HP
+  - HONE
+  - EXIT
   layers:
   - Default
   - TransparentFX

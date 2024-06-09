@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -25,6 +26,11 @@ public class SelectCharacter : MonoBehaviour
     private bool isPlayButtonClicked=false;
     private float gameCount = 3f;
 
+    public Text IdText;
+
+    [Header("Warning")]
+    public GameObject WarningUI;
+    public Text WarningMassageTxt;
     private void Update()
     {
         if (isPlayButtonClicked)
@@ -68,6 +74,8 @@ public class SelectCharacter : MonoBehaviour
     public void Start()
     {
         SetPanelInfo();
+        IdText.text = GameManager.Instance.UserID;
+        WarningMassageExit();
     }
 
     private void SetPanelInfo()
@@ -75,5 +83,19 @@ public class SelectCharacter : MonoBehaviour
         Nametxt.text = CharacterInfos[charIndex].Name;
         Featuretxt.text = CharacterInfos[charIndex].Feature;
         Charimage.sprite = Characters[charIndex].GetComponent<SpriteRenderer>().sprite;
+    }
+    public void HomeBtn()
+    {
+        WarningUI.SetActive(true);
+        WarningMassageTxt.text = "정말 HONE으로 가시겠습니까?";
+    }
+    public void ExitBtn()
+    {
+        WarningUI.SetActive(true);
+        WarningMassageTxt.text = "정말 게임을 나가시겠습니까?";
+    }
+    void WarningMassageExit()
+    {
+        WarningUI.SetActive(false);
     }
 }
