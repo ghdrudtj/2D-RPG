@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -13,15 +14,14 @@ public class GameManager : MonoBehaviour
     public float PlayerHP;
     public float PlayerExp;
     public int Coin = 0 ;
-    public int AttackDamage = 5;
-    public int Speed = 5;
+   
 
     public int monsterCount;
-    private float gameCount = 3f;
-    public Text GameCountTxt;
-    public GameObject GameStart;
+
 
     private GameManager player;
+
+    
 
     private void Awake()
     {
@@ -39,8 +39,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         UserID = PlayerPrefs.GetString("ID");
-       
     }
+    
     public GameObject SpawnPlayer(Transform spawnPos)
     {
         GameObject playerPrefab = Resources.Load<GameObject>("Characters/" + SelectedPlayer.ToString());

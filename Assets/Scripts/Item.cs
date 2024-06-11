@@ -23,14 +23,12 @@ public class Item : MonoBehaviour
             }
             else if(gameObject.tag == "AttackUP")
             {
-                GameManager.Instance.AttackDamage += 1;
                 Attack.Instance.AttackDamage += 1;
                 Destroy(gameObject);
             }
             else if(gameObject.tag == "SpeedUP")
             {
                 Character.Instance.Speed += 1;
-                GameManager.Instance.Speed += 1;
                 Destroy(gameObject);
             }
         }   
