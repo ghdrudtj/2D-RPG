@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
+   
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -12,7 +14,6 @@ public class Item : MonoBehaviour
             if (gameObject.tag == "Coin")
             {
                 GameManager.Instance.Coin += 10;
-                Debug.Log("Player Coin: = " + GameManager.Instance.Coin);
                 Destroy(gameObject);
             }
             else if (gameObject.tag == "HP")
@@ -20,12 +21,23 @@ public class Item : MonoBehaviour
                 GameManager.Instance.PlayerHP += 10;
                 Destroy(gameObject);
             }
+            else if(gameObject.tag == "AttackUP")
+            {
+                GameManager.Instance.AttackDamage += 1;
+                Attack.Instance.AttackDamage += 1;
+                Destroy(gameObject);
+            }
+            else if(gameObject.tag == "SpeedUP")
+            {
+                Character.Instance.Speed += 1;
+                GameManager.Instance.Speed += 1;
+                Destroy(gameObject);
+            }
         }   
-       
     }
     void Start()
     {
-        
+       
     }
 
     void Update()

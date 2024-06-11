@@ -28,9 +28,7 @@ public class SelectCharacter : MonoBehaviour
 
     public Text IdText;
 
-    [Header("Warning")]
-    public GameObject WarningUI;
-    public Text WarningMassageTxt;
+ 
     private void Update()
     {
         if (isPlayButtonClicked)
@@ -47,7 +45,8 @@ public class SelectCharacter : MonoBehaviour
     {
         GameStart.SetActive(true);
         isPlayButtonClicked = true;
-        GameManager.Instance.CharacterName = Characters[charIndex].name;
+        Define.Player player = (Define.Player)Enum.Parse(typeof(Define.Player), Characters[charIndex].name);
+        GameManager.Instance.SelectedPlayer = player;   
     }
 
     public void SelectCharacterBtn(string btnName)
@@ -75,7 +74,6 @@ public class SelectCharacter : MonoBehaviour
     {
         SetPanelInfo();
         IdText.text = GameManager.Instance.UserID;
-        WarningMassageExit();
     }
 
     private void SetPanelInfo()
@@ -84,18 +82,5 @@ public class SelectCharacter : MonoBehaviour
         Featuretxt.text = CharacterInfos[charIndex].Feature;
         Charimage.sprite = Characters[charIndex].GetComponent<SpriteRenderer>().sprite;
     }
-    public void HomeBtn()
-    {
-        WarningUI.SetActive(true);
-        WarningMassageTxt.text = "정말 HONE으로 가시겠습니까?";
-    }
-    public void ExitBtn()
-    {
-        WarningUI.SetActive(true);
-        WarningMassageTxt.text = "정말 게임을 나가시겠습니까?";
-    }
-    void WarningMassageExit()
-    {
-        WarningUI.SetActive(false);
-    }
+  
 }

@@ -7,6 +7,7 @@ public class Monstor : MonoBehaviour
     public float MonsterHP;
     public float MonsterDamage;
     public float MonsterExp;
+    public float MonsterCount;  
 
     private float moveTime = 0f;
     private float TurnTime = 0;
@@ -19,6 +20,7 @@ public class Monstor : MonoBehaviour
 
     void Start()
     {
+        GameManager.Instance.monsterCount++;
         MonsterAnimator=this.GetComponent<Animator>();
     }
     void Update()
@@ -72,9 +74,11 @@ public class Monstor : MonoBehaviour
         GameManager.Instance.PlayerExp += MonsterExp;
 
         GetComponent<Collider2D>().enabled = false;
-        Destroy(gameObject, 1.5f);
+        Invoke("CreateItem", 1.5f);
+        Destroy(gameObject, 1.55f);
+        GameManager.Instance.monsterCount --;
     }
-    private void OnDestroy()
+    private void CreateItem()
     {
         int itemRandom = Random.Range(0, ItemObj.Length*2);
         if (itemRandom < ItemObj.Length)

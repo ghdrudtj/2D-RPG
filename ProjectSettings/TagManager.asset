@@ -11,6 +11,8 @@ TagManager:
   - HP
   - HONE
   - EXIT
+  - AttackUP
+  - SpeedUP
   layers:
   - Default
   - TransparentFX
