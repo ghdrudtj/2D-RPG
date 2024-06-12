@@ -23,6 +23,7 @@ public class PlayerUI : MonoBehaviour
 
     public Text GameCountTxt;
     public GameObject GameStart;
+
     public static int currentTime;
     public static int BestTime;
 

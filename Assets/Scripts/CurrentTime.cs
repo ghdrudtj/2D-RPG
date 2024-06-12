@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class curruttime : MonoBehaviour
+public class CurrentTime : MonoBehaviour
 {
     void Start()
     {
