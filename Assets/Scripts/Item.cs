@@ -23,19 +23,19 @@ public class Item : MonoBehaviour
             }
             else if(gameObject.tag == "AttackUP")
             {
-                Attack.Instance.AttackDamage += 1;
+                GameManager.Instance.player.GetComponent<Character>().AttackObj.GetComponent<Attack>().AttackDamage += 1;
                 Destroy(gameObject);
             }
             else if(gameObject.tag == "SpeedUP")
             {
-                Character.Instance.Speed += 1;
+                GameManager.Instance.player.GetComponent<Character>().Speed += 1;
                 Destroy(gameObject);
             }
         }   
     }
     void Start()
     {
-       
+        
     }
 
     void Update()

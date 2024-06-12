@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Define;
 
 public class Monstor : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class Monstor : MonoBehaviour
     public GameObject[] ItemObj;
 
     private Animator MonsterAnimator;
+    public float PlayerHP;
 
     void Start()
     {
@@ -53,8 +55,11 @@ public class Monstor : MonoBehaviour
         {
             MonsterAnimator.SetTrigger("Attack");
             GameManager.Instance.PlayerHP -= MonsterDamage;
-            
-        } 
+            if (PlayerHP < 0) return;
+            {
+                CameraPos.Instance.PlayCameraShake();
+            }
+        }
         if (collision.gameObject.tag == "Attack")
         {
             MonsterAnimator.SetTrigger("Damage");

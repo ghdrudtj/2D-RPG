@@ -10,6 +10,8 @@ using UnityEngine.UI;
 
 public class SelectCharacter : MonoBehaviour
 {
+    public static SelectCharacter Instance;
+
     [Header("Into")]
     public Text Nametxt;
     public Text Featuretxt;
@@ -24,7 +26,7 @@ public class SelectCharacter : MonoBehaviour
     public GameObject GameStart;
     public Text GameCountTxt;
     private bool isPlayButtonClicked=false;
-    private float gameCount = 3f;
+    public float gameCount = 3f;
 
     public Text IdText;
 

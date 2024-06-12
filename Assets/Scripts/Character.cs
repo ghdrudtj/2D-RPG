@@ -9,7 +9,7 @@ using UnityEngine.Scripting.APIUpdating;
 public class Character : MonoBehaviour
 {
     public static Character Instance;
-
+    public float PlayerHP;
     private Animator animator;
     private Rigidbody2D rigidbody2d; 
     private AudioSource audioSource;
@@ -30,6 +30,7 @@ public class Character : MonoBehaviour
 
     private bool justAttack,justJump;
     private bool faceRight =true;
+
     void Start()
     {
         animator = GetComponent<Animator>();

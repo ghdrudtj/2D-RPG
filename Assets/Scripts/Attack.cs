@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Attack : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class Attack : MonoBehaviour
     public static Attack Instance;
     void Start()
     {
-        
+       
     }
 
     void Update()

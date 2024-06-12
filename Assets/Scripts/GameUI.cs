@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -23,10 +24,14 @@ public class GameUI : MonoBehaviour
     public GameObject GameStart;
     public Text GameCountTxt;
 
+    
     void Start()
     {
         WarningMassageExit();
     }
+
+
+
     public void HomeBtn()
     {
         WarningUI.SetActive(true);
