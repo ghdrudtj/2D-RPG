@@ -7,6 +7,7 @@ using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class PlayerUI : MonoBehaviour
 {
+    public static PlayerUI Instance;
     public Image CharacterImg;
     public Text IdText;
 
@@ -33,10 +34,8 @@ public class PlayerUI : MonoBehaviour
     {
         IdText.text = GameManager.Instance.UserID;
         Player = GameManager.Instance.SpawnPlayer(spawnPos.transform);
-        if(SceneManager.GetActiveScene().name == "MainScene")
-        {
-            StartCoroutine(TimerCoroutine());
-        }
+        
+        StartCoroutine(TimerCoroutine());
     }
 
     void Update()
@@ -50,16 +49,18 @@ public class PlayerUI : MonoBehaviour
         if(GameManager.Instance.monsterCount <= 0)
         {
             gameCount -= Time.deltaTime;
-            if (gameCount <= 0)
-            {
-                
-                SceneManager.LoadScene("ExitScene");
-            }
-            if (currentTime > BestTime)
+           
+            if (currentTime >= BestTime)
             {
                 currentTime = BestTime;
+                PlayerPrefs.SetInt("BestTime", BestTime);
+                PlayerPrefs.Save();
             }
+            if (gameCount <= 0)
+            {
 
+                SceneManager.LoadScene("ExitScene");
+            }
             GameCountTxt.text = $"축하합니다. 게임을 클리어 하셨습니다.\n {gameCount:F1}";
         }
     }
@@ -88,7 +89,13 @@ public class PlayerUI : MonoBehaviour
                 yield break;
             }
 
-            Playtime.text = "Play Time: " + (int)Time.time;
+            Playtime.text = "Play Time: " + FormatTime((int)Time.time);
         }
+    }
+    string FormatTime(float time)
+    {
+        int minutes = Mathf.FloorToInt(time / 60);
+        int seconds = Mathf.FloorToInt(time % 60);
+        return string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 }

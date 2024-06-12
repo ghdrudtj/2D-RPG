@@ -7,7 +7,14 @@ public class BestTime : MonoBehaviour
 {
     void Start()
     {
-        GetComponent<Text>().text = "Bext Time: " + PlayerUI.BestTime;
+        float bestTime = PlayerPrefs.GetInt("BestTime");
+        GetComponent<Text>().text = "Best Time: " + FormatTime(bestTime);
+    }
+    string FormatTime(float time)
+    {
+        int minutes = Mathf.FloorToInt(time / 60);
+        int seconds = Mathf.FloorToInt(time % 60);
+        return string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
     void Update()
