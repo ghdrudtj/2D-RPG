@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,8 +5,7 @@ public class BestTime : MonoBehaviour
 {
     void Start()
     {
-        float bestTime = PlayerPrefs.GetInt("BestTime");
-        GetComponent<Text>().text = "Best Time: " + FormatTime(bestTime);
+        GetComponent<Text>().text = "Best Time: " + FormatTime(PlayerUI.BestTime);
     }
     string FormatTime(float time)
     {

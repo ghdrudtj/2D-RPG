@@ -195,6 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e4ad423fee0254c94eb76e7592ceb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerHP: 0
   JumpClip: {fileID: 8300000, guid: 057b8c44a7ebe2f42b30792dded2c461, type: 3}
   Speed: 5
   JumpPower: 7

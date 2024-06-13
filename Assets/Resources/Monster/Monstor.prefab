@@ -50,10 +50,14 @@ MonoBehaviour:
   MonsterHP: 30
   MonsterDamage: 2
   MonsterExp: 3
+  MonsterCount: 0
   MoveSpeed: 3
   ItemObj:
   - {fileID: 3243577422709066471, guid: aef6ac2b48ea68540b70815d3c7e28f9, type: 3}
   - {fileID: 1589962862075100034, guid: 93c0af207cbe3c8488211d4ae916d2f0, type: 3}
+  - {fileID: 3429946250745425446, guid: 521621a1d50210844aee162216b9b527, type: 3}
+  - {fileID: 3625250743474265157, guid: 61d70d16c610e174daad20aa2f003c50, type: 3}
+  PlayerHP: 0
 --- !u!212 &7593657427373830121
 SpriteRenderer:
   m_ObjectHideFlags: 0

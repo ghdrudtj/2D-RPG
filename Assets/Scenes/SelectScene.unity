@@ -724,6 +724,7 @@ RectTransform:
   - {fileID: 1401846070}
   - {fileID: 1221896582}
   - {fileID: 621843342}
+  - {fileID: 1101042017}
   m_Father: {fileID: 1519207720}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6654792, y: 0.14914812}
@@ -2332,12 +2333,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1519207720}
+  m_Father: {fileID: 379827439}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -15.484, y: 66.778}
-  m_SizeDelta: {x: -1600.732, y: -966.753}
+  m_AnchoredPosition: {x: -633.34375, y: 64.698105}
+  m_SizeDelta: {x: -281.0121, y: -648.75305}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1119729159
 GameObject:
@@ -2676,8 +2677,6 @@ MonoBehaviour:
   PlayerHP: 100
   PlayerExp: 0
   Coin: 0
-  GameCountTxt: {fileID: 1267012559}
-  gameCount: 3
   monsterCount: 0
   player: {fileID: 0}
 --- !u!4 &1173413525
@@ -3566,7 +3565,6 @@ RectTransform:
   - {fileID: 1947247061}
   - {fileID: 379827439}
   - {fileID: 1009735416}
-  - {fileID: 1101042017}
   - {fileID: 712056849}
   - {fileID: 1325677708}
   - {fileID: 8706530}

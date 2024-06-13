@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static Define;
 
 public class Monstor : MonoBehaviour
 {
@@ -23,6 +20,7 @@ public class Monstor : MonoBehaviour
     void Start()
     {
         GameManager.Instance.monsterCount++;
+       
         MonsterAnimator=this.GetComponent<Animator>();
     }
     void Update()

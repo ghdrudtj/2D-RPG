@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
@@ -23,12 +19,12 @@ public class Item : MonoBehaviour
             }
             else if(gameObject.tag == "AttackUP")
             {
-                GameManager.Instance.player.GetComponent<Character>().AttackObj.GetComponent<Attack>().AttackDamage += 1;
+                GameManager.Instance.player.GetComponent<Character>().AttackObj.GetComponent<Attack>().AttackDamage += 5;
                 Destroy(gameObject);
             }
             else if(gameObject.tag == "SpeedUP")
             {
-                GameManager.Instance.player.GetComponent<Character>().Speed += 1;
+                GameManager.Instance.player.GetComponent<Character>().Speed += 3;
                 Destroy(gameObject);
             }
         }   

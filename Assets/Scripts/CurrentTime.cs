@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +5,7 @@ public class CurrentTime : MonoBehaviour
 {
     void Start()
     {
-        GetComponent<Text>().text = "Play time: " + FormatTime((int)Time.time);
+        GetComponent<Text>().text = "Play time: " + FormatTime(PlayerUI.currentTime);
     }
     string FormatTime(float time)
     {

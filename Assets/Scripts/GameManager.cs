@@ -1,7 +1,4 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using static Define;
 
 public class GameManager : MonoBehaviour
@@ -36,6 +33,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         UserID = PlayerPrefs.GetString("ID");
+        
         
     }
     
