@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
 
 public class Character : MonoBehaviour
 {
     private Animator animator;
-    private SpriteRenderer spriteRenderer;
     private Rigidbody2D rigidbody2d; 
     private AudioSource audioSource;
 
@@ -27,11 +27,10 @@ public class Character : MonoBehaviour
     public AudioClip AttackClip;
 
     private bool justAttack,justJump;
-
+    private bool faceRight = true;
     void Start()
     {
         animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         rigidbody2d = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
     }
@@ -56,24 +55,27 @@ public class Character : MonoBehaviour
         {
             transform.Translate(Vector3.right*Speed*Time.deltaTime);//상대 위치 이동
             animator.SetBool("Move",true);//move가 true일 때(동안) 애니메이션Move 실행
+            if (!faceRight) Flip();
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(Vector3.left * Speed * Time.deltaTime);
             animator.SetBool("Move",true) ;
+            if (faceRight) Flip();
         }
         else
         {
             animator.SetBool("Move",false);//아무것도 눌리지 않았을 때 false로
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))//눌렸을 때만 방향 전환하게 GetKeyDown 사용
-        {
-            spriteRenderer.flipX = false;
-        }
-        else if(Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            spriteRenderer.flipX = true;//방향 전환 됨
-        }
+      
+    }
+    private void Flip()
+    {
+        faceRight =!faceRight;
+
+        Vector3 IocalScale = transform.localScale;
+        IocalScale.x *= -1;
+        transform.localScale = IocalScale;
     }
     //점프
     private void Jump()
@@ -135,7 +137,7 @@ public class Character : MonoBehaviour
             }
             else
             {
-                if (spriteRenderer.flipX)
+                if (!faceRight)
                 {
                     GameObject obj = Instantiate(AttackObj, transform.position, Quaternion.Euler(0, 180f, 0));
                     obj.GetComponent<Rigidbody2D>().AddForce(Vector2.left * AttackSpeed, ForceMode2D.Impulse);

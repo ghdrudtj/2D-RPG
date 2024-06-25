@@ -41,7 +41,8 @@ public class SelectCharacter : MonoBehaviour
     {
         GameStart.SetActive(true);
         isPlayButtonClicked = true;
-        GameManager.Instance.CharacterName = Characters[charIndex].name;
+        Define.Player player = (Define.Player)Enum.Parse(typeof(Define.Player), Characters[charIndex].name);
+        GameManager.Instance.SelectedPlayer = player;
     }
 
     public void SelectCharacterBtn(string btnName)
