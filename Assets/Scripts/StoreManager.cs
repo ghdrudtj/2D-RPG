@@ -46,7 +46,7 @@ public class StoreManager : MonoBehaviour
         {
             if(BackPackManager.Instance .AddItem(selectedItem))
             {
-                GameManager.Instance.Coin = selectedItem.itemPrice;
+                GameManager.Instance.Coin -= selectedItem.itemPrice;
                 PopupMsgManager.instance.ShowPopupMessage("구매 성공");
             }
             else

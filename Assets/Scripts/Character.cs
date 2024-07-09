@@ -132,7 +132,7 @@ public class Character : MonoBehaviour
 
             if (gameObject.name == "Warrior(Clone)")
             {
-                AttackObj.SetActive(true);
+                AttackObj.GetComponent<Collider2D>().enabled = false;
                 Invoke("SetAttackObjInactive", 0.5f);
             }
             else
@@ -154,7 +154,7 @@ public class Character : MonoBehaviour
     }
     private void SetAttackObjInactive()
     {
-        AttackObj.SetActive(false);
+        AttackObj.GetComponent<Collider2D>().enabled=false;
     }
     //사다리에서 움직임
     private void ClimbingChack()

@@ -28,6 +28,7 @@ public class FadeOut : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }
         backGroundAudio.Play();
+        this.FadeImage.GetComponent<Image>().gameObject.SetActive(false);
     }
 
     void Update()
