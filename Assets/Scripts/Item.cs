@@ -11,13 +11,13 @@ public class Item : MonoBehaviour
         {
             if (gameObject.tag == "Coin")
             {
-                GameManager.Instance.Coin += 10;
-                Debug.Log("Player Coin: = " + GameManager.Instance.Coin);
+                GameManager.Instance.PlayerStat.Coin += 10;
+                Debug.Log("Player Coin: = " + GameManager.Instance.PlayerStat.Coin);
                 Destroy(gameObject);
             }
             else if (gameObject.tag == "HP")
             {
-                GameManager.Instance.PlayerHP += 10;
+                GameManager.Instance.PlayerStat.HP += 10;
                 Destroy(gameObject);
             }
         }   

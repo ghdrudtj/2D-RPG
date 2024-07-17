@@ -50,7 +50,7 @@ public class Monstor : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             MonsterAnimator.SetTrigger("Attack");
-            GameManager.Instance.PlayerHP -= MonsterDamage;
+            GameManager.Instance.PlayerStat.HP -= MonsterDamage;
             
         } 
         if (collision.gameObject.tag == "Attack")
@@ -69,7 +69,7 @@ public class Monstor : MonoBehaviour
         isDie = true;
 
         MonsterAnimator.SetTrigger("Die");
-        GameManager.Instance.PlayerExp += MonsterExp;
+        GameManager.Instance.PlayerStat.Exp += MonsterExp;
 
         GetComponent<Collider2D>().enabled = false;
         Invoke("Createltem", 1.5f);
