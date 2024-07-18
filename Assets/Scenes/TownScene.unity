@@ -2798,7 +2798,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: eae2a8efdeb2c374f8b5bdc091e954f9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 98c03a4b7b895ab46863fbdbbbc7d0c4, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4194,7 +4194,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 98c03a4b7b895ab46863fbdbbbc7d0c4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eae2a8efdeb2c374f8b5bdc091e954f9, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6349,7 +6349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f3675edf5a92ca4083a76c73d8779b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectedPlayer: 2
+  SelectedPlayer: 0
   UserID: test
   PlayerStat:
     HP: 70
@@ -8170,6 +8170,11 @@ MonoBehaviour:
   SkillExplainUI: {fileID: 2096497088}
   SkillImage: {fileID: 606310982}
   SkillText: {fileID: 1322716840}
+  Skills:
+  - {fileID: 775962007}
+  - {fileID: 435350386}
+  - {fileID: 1440112651}
+  animator: {fileID: 0}
 --- !u!1 &1508410745
 GameObject:
   m_ObjectHideFlags: 0

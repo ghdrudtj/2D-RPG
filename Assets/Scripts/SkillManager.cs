@@ -10,6 +10,10 @@ public class SkillManager : MonoBehaviour
     public Image SkillImage;
     public Text SkillText;
 
+    public Image[] Skills;
+    private float SkillSpeed = 6f;
+
+    public Animator animator;
     public void ExplainSkilBth(int number)
     {
         SkillExplainUI.SetActive(true);
@@ -39,13 +43,47 @@ public class SkillManager : MonoBehaviour
     {
         SkillExplainUI.SetActive(false);
     }
-    void Start()
+    private void SkillUse()
     {
-        
-    }
+        if(GameManager.Instance.PlayerStat.Level >= 5) 
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                if (Skills[0].fillAmount >= 1)
+                {
+                    GameManager.Instance.PlayerStat.MP -= 10;
+                    GameManager.Instance.character.AttackAnimation();
 
-    void Update()
+                    GameObject playerPrefab = Resources.Load<GameObject>("Skill/W_SKILL_0");
+
+                    Quaternion rotation = Quaternion.identity;
+                    float speed = SkillSpeed;
+                    if(GameManager.Instance.player.transform.localScale.x < 0)
+                    {
+                        rotation = Quaternion.Euler(0, 180, 0);
+                        speed = SkillSpeed * -1;
+                    }
+                    GameObject obj = Instantiate(playerPrefab, GameManager.Instance.player.transform.position,rotation);
+                    obj.GetComponent<Rigidbody2D>().AddForce(new Vector2(speed,0),ForceMode2D.Impulse);
+                    Destroy(obj,5);
+
+                    StartCoroutine(SkillAmount(0));
+                }
+            }
+        }
+    }
+  IEnumerator SkillAmount(int skillIndex)
     {
-        
+        Skills[skillIndex].fillAmount = 0;
+        while (Skills[skillIndex].fillAmount < 1)
+        {
+            Skills[skillIndex].fillAmount += 0.01f;
+            yield return new WaitForSeconds(0.05f);
+        }
+        Skills[skillIndex].fillAmount = 1;
+    }
+    private void Update()
+    {
+        SkillUse();
     }
 }

@@ -191,4 +191,8 @@ public class Character : MonoBehaviour
             isLadder=false;
         }
     }
+    public void AttackAnimation()
+    {
+        animator.SetTrigger("Attack");
+    }
 }
