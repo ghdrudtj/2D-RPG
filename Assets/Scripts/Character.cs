@@ -67,7 +67,6 @@ public class Character : MonoBehaviour
         {
             animator.SetBool("Move",false);//아무것도 눌리지 않았을 때 false로
         }
-      
     }
     private void Flip()
     {
